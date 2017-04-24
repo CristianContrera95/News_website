@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}- Login{% endblock %}
+
+{% block extra_stylesheets %}
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please Login</h2>
+        <a class="btn btn-primary btn-block" href="{{ url_for('login', provider='google') }}" role="button">
+            <i class="fa fa-google fa-lg"></i>  Login with <strong>Google</strong>
+        </a>
+        <a class="btn btn-primary btn-block" href="{{ url_for('login', provider='github') }}" role="button">
+            <i class="fa fa-github-square fa-lg"></i>  Login with <strong>Github</strong>
+        </a>
+        <a class="btn btn-primary btn-block" href="{{ url_for('login', provider='facebook') }}" role="button">
+            <i class="fa fa-facebook fa-lg"></i>  Login with <strong>Facebook</strong>
+        </a>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="main-header">
+    <h1 class="main-title">Welcome to your feed {{ current_user.nickname }}!</h1>
+    <p class="lead main-description">Choose a source to see the news</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-10 col-md-offset-1">
+      {% if message %}
+          <div class="alert alert-{{ message_level }}" role="alert">{{ message }}</div>
+      {% endif %}
+      <ul class="list-group">
+        {% for feed in current_user.feeds %}
+            <li class="list-group-item">
+              <a class="badge btn-danger" href="{{ url_for('delete_feed', feed=feed.id) }}">
+                <i class="fa fa-trash-o"></i>
+              </a>
+              <a href="{{ url_for('rss', feed=feed.id) }}"><h4 class="list-group-item-heading">{{ feed.title }}</h4></a>
+              <p class="list-group-item-text">{{ feed.description }}</p>
+            </li>
+        {% endfor %}
+        <li class="list-group-item list-group-item-success text-center">
+          <a class="text-success" href="{{ url_for('new_feed') }}"><i class="fa fa-plus fa-lg"></i> Add New Feed</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div><!-- /.row -->
+{% endblock %}
+

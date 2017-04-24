@@ -1,0 +1,24 @@
+/*
+ * Main column and sidebar layout
+ */
+
+.rss-main {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/*
+ * RSS posts
+ */
+
+.rss-post {
+  margin-bottom: 60px;
+}
+.rss-post-title {
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+.rss-post-meta {
+  margin-bottom: 20px;
+  color: #999;
+}

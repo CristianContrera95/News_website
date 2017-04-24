@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block extra_stylesheets %}
+<link href="{{ url_for('static', filename='css/rss.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="main-header">
+    <h1 class="main-title">{{ feed.title }}</h1>
+    <p class="lead main-description">{{ feed.description }}</p>
+</div>
+
+<div class="row">
+
+<div class="col-md-10 rss-main">
+
+  {% for entry in entries %}
+    <div class="rss-post">
+      <h2 class="rss-post-title"><a href="{{ entry.link }}" target="_blank">{{ entry.title }}</a></h2>
+      <p class="rss-post-meta">{{ entry.published }}</p>
+      <p>{{ entry.summary|safe }}</p>
+    </div><!-- /.rss-post -->
+  {% endfor %}
+
+</div><!-- /.rss-main -->
+
+</div><!-- /.row -->
+{% endblock %}
